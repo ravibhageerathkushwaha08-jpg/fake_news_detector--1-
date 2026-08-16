@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Verifier — Fake News Detector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="desk">
+
+    <main class="paper" id="paper">
+
+      <header class="masthead">
+        <p class="masthead__eyebrow">EST. TODAY &nbsp;·&nbsp; VOL. I &nbsp;·&nbsp; ML EDITION</p>
+        <h1 class="masthead__title">THE VERIFIER</h1>
+        <p class="masthead__tagline">A press desk for headlines that can't be trusted at a glance</p>
+        <div class="rule rule--thick"></div>
+        <div class="rule rule--thin"></div>
+      </header>
+
+      <section class="submission">
+        <label for="headline" class="submission__label">Submit a headline or article for review</label>
+        <textarea
+          id="headline"
+          class="submission__input"
+          placeholder="e.g. Scientists reveal secret cure doctors don't want you to know about..."
+          rows="4"
+        ></textarea>
+
+        <div class="submission__row">
+          <span class="submission__hint" id="hint">Press the stamp to get a verdict</span>
+          <button id="analyzeBtn" class="stamp-btn">
+            <span class="stamp-btn__label">Analyze</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="verdict" id="verdictSection" aria-live="polite">
+        <div class="verdict__stamp verdict__stamp--hidden" id="stampBadge">
+          <span id="stampText">REAL</span>
+        </div>
+        <p class="verdict__confidence" id="confidenceText"></p>
+      </section>
+
+      <footer class="colophon">
+        <p>Model: TF‑IDF + Logistic Regression &nbsp;·&nbsp; Trained on a sample newsroom dataset &nbsp;·&nbsp; Built for learning, not fact‑checking</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
