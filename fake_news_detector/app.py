@@ -13,6 +13,7 @@ Then open your browser at:
 
 import re
 import string
+import os
 
 import joblib
 from flask import Flask, jsonify, render_template, request
@@ -71,4 +72,4 @@ def predict():
 
 if __name__ == "__main__":
     # debug=True auto-reloads the server when you edit the code (dev only)
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
